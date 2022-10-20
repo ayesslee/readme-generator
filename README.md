@@ -13,13 +13,9 @@ In the command line enter
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+After installing the necessary components you will be answering prompts to be inserted into the README file.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![demo gif](./k074HXG.gif)
-    ```
+![demo gif](./k074HXG.gif)
 
 
 
