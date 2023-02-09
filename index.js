@@ -1,14 +1,14 @@
 // dependencies
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./assets/utils/generateMarkdown');
 
 // user input questions
 const questions = [
     {
         type: "input",
         message: "What is the title for your project?",
-        name: "projectName"
+        name: "title"
     },
     {
         type: "input",
@@ -33,7 +33,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "Who contributed to this project?",
+        message: "What was used for this project?",
         name: "contribution"
     },
     {

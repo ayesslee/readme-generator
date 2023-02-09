@@ -15,7 +15,15 @@ In the command line enter
 
 After installing the necessary components you will be answering prompts to be inserted into the README file.
 
-![demo gif](./k074HXG.gif)
+## Demonstration
+
+![demo gif](./assets/FU5gfoI.gif)
+
+## Technologies Used 
+
+    - JavaScript
+    - Inquirer 2.8.3
+    - fs
 
 
 
