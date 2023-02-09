@@ -24,7 +24,9 @@ After installing the necessary components you will be answering prompts to be in
 ## Technologies Used 
 
     - JavaScript
+    
     - Inquirer 2.8.3
+    
     - fs
 
 
