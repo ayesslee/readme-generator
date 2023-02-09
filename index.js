@@ -1,79 +1,76 @@
-// TODO: Include packages needed for this application
+// dependencies
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./assets/utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// user input questions
 const questions = [
     {
         type: "input",
-        message: "What is your username for Github?",
-        name: "username"
+        message: "What is the title for your project?",
+        name: "projectName"
     },
     {
         type: "input",
-        message: "What is the name of your project?",
-        name: "project"
+        message: "Provide a description for this project",
+        name: "description"
     },
     {
         type: "input",
-        message: "Write a short description of your project",
-        name: "summary"
+        message: "What are the installation instructions for this project?",
+        name: "installation"
     },
     {
         type: "input",
-        message: "What command is used to install the necessary items",
-        name: "install"
-    },
-    {
-        type: "input",
-        message: "How do I use this application?",
+        message: "What is the usage for this project?",
         name: "usage"
     },
     {
+        type: "list",
+        message: "Choose the appropriate license:",
+        name: "license",
+        choices: ['MIT', 'Apache-2.0', 'GPL-3.0', 'BDS-2-Clause', 'BDS-3-Clause', 'BDS-4-Clause', 'none']
+    },
+    {
         type: "input",
-        message: "How are tests run with this application?",
+        message: "Who contributed to this project?",
+        name: "contribution"
+    },
+    {
+        type: "input",
+        message: "Any test instructions?",
         name: "test"
     },
     {
-        type: "input",
-        message: "How can someone contribute to this application?",
-        name: "contribute"
+        type: 'input',
+        message: 'What is your github username?',
+        name: 'github'
     },
     {
-        type: "list",
-        message: "What type of license does your project use?",
-        name: "license",
-        choices: [
-            "MIT",
-            "APACHE",
-            "Mozilla Public License 2.0",
-            "ISC",
-            "None"
-        ]
+        type: 'input',
+        message: 'What is your email?',
+        name: 'email'
     }
+    
 ];
 
 
-// TODO: Create a function to write README file
+// function to write a readme file
 function writeToFile(fileName, data) {
-   let answers = generateMarkdown(data);
-   fs.writeFile(fileName, answers, function (error) {
-    if (error) {
-        return console.log(error)
-    }
-    console.log('Successfully created README file')
-   });
-}
+    fs.appendFile(fileName, data, (err) => err ? console.error(err) : console.log('Generating README file...'));
+};
 
-// TODO: Create a function to initialize app
+// initialize app function
 function init() {
-    inquirer.prompt(questions).then(function (data) {
-        var fileName = 'README.md';
-        writeToFile(fileName, data)
-    });
-}
-
+    inquirer
+        .prompt(
+            questions
+        )
+        .then((response) => {
+            const READinfo = (generateMarkdown(response));
+            writeToFile('README2.md', READinfo);
+        });
+};
 
 // Function call to initialize app
 init();
